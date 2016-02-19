@@ -1,6 +1,8 @@
 # Train a smartcab how to drive
 Reinforcement Learning Project
 
+Please read Smartcab.pdf for the report.
+
 ## Install
 
 This project requires Python 2.7 with the pygame library installed:
