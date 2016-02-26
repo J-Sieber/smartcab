@@ -59,8 +59,8 @@ class LearningAgent(Agent):
         action = self.ConvertTraffic(action)
 
         #Learn policy based on state, action, reward
-        #Q(S,A) = Q(S,A)+(1-alpha)*(R(S,A)+gamma*np.max(Q(S',A')))
-        self.policy[state][action] = self.policy[state][action]+(1-self.alpha)*(reward + self.gamma * np.max(self.policy))
+        #Q(S,A) = (1-alpha)*Q(S,A) + alpha*(R(S,A)+gamma*max_(A')(Q(S',A')))
+        self.policy[state][action] = (1-self.alpha)*self.policy[state][action]+self.alpha*(reward + self.gamma * np.max(self.policy))
         
         print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}, state = {}".format(deadline, inputs, action, reward, state)  # [debug]
     
